@@ -1,0 +1,54 @@
+# v0 sandbox internal files
+__v0_runtime_loader.js
+__v0_devtools.tsx
+__v0_jsx-dev-runtime.ts
+.snowflake/
+.v0-trash/
+.vercel/
+
+# ------------------------------------------------------------------ Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# ------------------------------------------------------------------ Django
+*.log
+logs/
+db.sqlite3
+db.sqlite3-journal
+/media/
+/staticfiles/
+
+# ------------------------------------------------------------------ RAG / AI
+chroma_store/
+*.chroma
+.cache/
+models/
+
+# ------------------------------------------------------------- Environment
+.env
+.env.*
+!.env.example
+.env*.local
+
+# --------------------------------------------------------------------- OS
+.DS_Store
+Thumbs.db
+
+# ------------------------------------------------------------------ Editors
+.idea/
+.vscode/
+*.swp
+
+# --------------------------------------------------------------- JS (legacy)
+node_modules
+.next/

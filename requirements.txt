@@ -1,0 +1,28 @@
+# =============================================================================
+# DocuTrust — Python dependencies
+# Install with:  pip install -r requirements.txt
+# =============================================================================
+
+# ------------------------------------------------------------ Web framework
+Django>=5.1,<5.2
+djangorestframework>=3.15,<3.16
+django-cors-headers>=4.4,<5.0
+
+# ---------------------------------------------------------------- Utilities
+python-dotenv>=1.0,<2.0
+Pillow>=10.4
+
+# ------------------------------------------------- AI / RAG (later modules)
+# These are declared up-front for reproducibility. They are imported starting
+# in the embeddings, ChromaDB, agents, and RAG pipeline modules.
+openai>=1.40
+agno>=0.2.0
+chromadb>=0.5.0
+sentence-transformers>=3.0.0
+PyMuPDF>=1.24.0
+python-docx>=1.1.0
+tiktoken>=0.7.0
+
+# --------------------------------------------------------- Production server
+gunicorn>=22.0
+whitenoise>=6.7

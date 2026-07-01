@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<!-- Hero -->
+<section class="dt-hero">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-7">
+                <span class="dt-badge mb-3">
+                    <i class="bi bi-stars"></i> Automated Self-Correction
+                </span>
+                <h1 class="dt-hero-title text-balance">
+                    Grounded answers from your documents, with citations you can trust.
+                </h1>
+                <p class="dt-hero-lead text-pretty">
+                    {{ SITE_NAME }} is an enterprise Retrieval-Augmented Generation
+                    platform. A multi-agent pipeline retrieves, grades, and rewrites
+                    queries automatically — so every answer is accurate and verifiable.
+                </p>
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                    <a href="#pipeline" class="btn btn-primary btn-lg">
+                        <i class="bi bi-diagram-3 me-1"></i> See the pipeline
+                    </a>
+                    <a href="#features" class="btn btn-outline-secondary btn-lg">
+                        Explore features
+                    </a>
+                </div>
+                <div class="dt-stats mt-5">
+                    <div class="dt-stat">
+                        <span class="dt-stat-value">6</span>
+                        <span class="dt-stat-label">AI Agents</span>
+                    </div>
+                    <div class="dt-stat">
+                        <span class="dt-stat-value">3</span>
+                        <span class="dt-stat-label">File Formats</span>
+                    </div>
+                    <div class="dt-stat">
+                        <span class="dt-stat-value">100%</span>
+                        <span class="dt-stat-label">Cited Answers</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="dt-hero-card">
+                    <div class="dt-hero-card-header">
+                        <span class="dt-dot"></span>
+                        <span class="dt-dot"></span>
+                        <span class="dt-dot"></span>
+                        <span class="ms-2 small text-secondary">retrieval-trace.log</span>
+                    </div>
+                    <div class="dt-hero-card-body">
+                        <p><span class="dt-tag dt-tag-retrieve">RETRIEVE</span> Found 5 candidate passages</p>
+                        <p><span class="dt-tag dt-tag-grade">GRADE</span> Relevance score: 0.42 &lt; 0.60</p>
+                        <p><span class="dt-tag dt-tag-rewrite">REWRITE</span> Reformulating query&hellip;</p>
+                        <p><span class="dt-tag dt-tag-retrieve">RETRIEVE</span> Found 5 improved passages</p>
+                        <p><span class="dt-tag dt-tag-grade">GRADE</span> Relevance score: 0.87 &gt; 0.60</p>
+                        <p><span class="dt-tag dt-tag-answer">ANSWER</span> Generating grounded response&hellip;</p>
+                        <p class="dt-cursor"><span class="dt-tag dt-tag-cite">CITE</span> [doc_04, p.12] · [doc_04, p.13]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features -->
+<section id="features" class="dt-section">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="dt-section-title text-balance">Everything an enterprise RAG platform needs</h2>
+            <p class="dt-section-lead text-pretty">
+                From secure ingestion to self-correcting retrieval and analytics.
+            </p>
+        </div>
+        <div class="row g-4">
+            {% for feature in features %}
+            <div class="col-md-6 col-lg-4">
+                <div class="dt-feature-card h-100">
+                    <div class="dt-feature-icon">
+                        <i class="bi {{ feature.icon }}"></i>
+                    </div>
+                    <h3 class="dt-feature-title">{{ feature.title }}</h3>
+                    <p class="dt-feature-text">{{ feature.text }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Pipeline -->
+<section id="pipeline" class="dt-section dt-section-alt">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="dt-section-title text-balance">How the self-correcting pipeline works</h2>
+            <p class="dt-section-lead text-pretty">
+                A relevance-grading loop guarantees answers are grounded in your data.
+            </p>
+        </div>
+        <div class="row g-4">
+            {% for step in pipeline_steps %}
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="dt-step-card h-100">
+                    <span class="dt-step-num">{{ step.step }}</span>
+                    <h3 class="dt-step-title">{{ step.title }}</h3>
+                    <p class="dt-step-text">{{ step.text }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="dt-section">
+    <div class="container">
+        <div class="dt-cta text-center">
+            <h2 class="text-balance">Ready to build trust in your documents?</h2>
+            <p class="text-pretty mb-4">
+                Authentication, uploads, and the full chat experience arrive in the next modules.
+            </p>
+            <a href="{% url 'health_check' %}" class="btn btn-primary btn-lg">
+                <i class="bi bi-activity me-1"></i> Check system status
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

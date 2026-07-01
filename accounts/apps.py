@@ -1,0 +1,16 @@
+"""App configuration for the accounts app."""
+from __future__ import annotations
+
+from django.apps import AppConfig
+
+
+class AccountsConfig(AppConfig):
+    """Configuration for the accounts application."""
+
+    default_auto_field = "django.db.models.BigAutoField"
+    name = "accounts"
+    verbose_name = "Accounts & Authentication"
+
+    def ready(self) -> None:
+        """Import signal handlers when the app registry is ready."""
+        from . import signals  # noqa: F401

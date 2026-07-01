@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% comment %}Centered card layout shared by all authentication pages.{% endcomment %}
+
+{% block auth_links %}
+<li class="nav-item ms-lg-2">
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'login' %}">Sign in</a>
+</li>
+<li class="nav-item ms-lg-1">
+    <a class="btn btn-primary btn-sm" href="{% url 'register' %}">Get started</a>
+</li>
+{% endblock %}
+
+{% block content %}
+<section class="dt-auth-wrapper">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-5">
+                <div class="card dt-auth-card border-0 shadow-lg">
+                    <div class="card-body p-4 p-md-5">
+                        <div class="text-center mb-4">
+                            <span class="dt-logo-mark dt-logo-mark-lg mb-3">
+                                <i class="bi bi-shield-lock-fill"></i>
+                            </span>
+                            <h1 class="h4 fw-bold mb-1">{% block auth_title %}{% endblock %}</h1>
+                            <p class="text-secondary small mb-0">
+                                {% block auth_subtitle %}{% endblock %}
+                            </p>
+                        </div>
+                        {% block auth_body %}{% endblock %}
+                    </div>
+                </div>
+                <p class="text-center text-secondary small mt-3">
+                    {% block auth_footer %}{% endblock %}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

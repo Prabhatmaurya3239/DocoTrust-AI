@@ -1,0 +1,85 @@
+{% extends "app_base.html" %}
+
+{% block title %}Profile{% endblock %}
+{% block page_title %}Profile & Settings{% endblock %}
+
+{% block app_content %}
+<div class="row g-4">
+    <div class="col-12 col-lg-4">
+        <div class="card dt-card h-100">
+            <div class="card-body text-center">
+                {% if user.profile.avatar %}
+                <img src="{{ user.profile.avatar.url }}" alt="Profile picture"
+                     class="dt-avatar-lg mb-3">
+                {% else %}
+                <span class="dt-avatar dt-avatar-xl mb-3">{{ user.profile.initials }}</span>
+                {% endif %}
+                <h2 class="h5 mb-0">{{ user.profile.display_name }}</h2>
+                <p class="text-secondary small">{{ user.email }}</p>
+                {% if user.profile.job_title %}
+                <span class="badge dt-badge">{{ user.profile.job_title }}</span>
+                {% endif %}
+                {% if user.profile.organization %}
+                <span class="badge dt-badge">{{ user.profile.organization }}</span>
+                {% endif %}
+                <hr>
+                <a href="{% url 'password_change' %}" class="btn btn-sm btn-outline-secondary w-100">
+                    <i class="bi bi-key me-1"></i> Change password
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-lg-8">
+        <div class="card dt-card">
+            <div class="card-body">
+                <h2 class="h6 fw-bold mb-3">Edit profile</h2>
+                <form method="post" enctype="multipart/form-data" novalidate>
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">First name</label>
+                            {{ user_form.first_name }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Last name</label>
+                            {{ user_form.last_name }}
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Email</label>
+                            {{ user_form.email }}
+                            {% for error in user_form.email.errors %}
+                            <div class="text-danger small mt-1">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Organization</label>
+                            {{ profile_form.organization }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Job title</label>
+                            {{ profile_form.job_title }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Preferred theme</label>
+                            {{ profile_form.theme }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Avatar</label>
+                            {{ profile_form.avatar }}
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Bio</label>
+                            {{ profile_form.bio }}
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-check2 me-1"></i> Save changes
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

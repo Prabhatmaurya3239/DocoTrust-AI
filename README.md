@@ -157,3 +157,5 @@ DocuTrust follows Django security best practices out of the box:
 - [x] Module 12 — API
 - [ ] Module 13 — Deployment
 - [ ] Module 14 — Documentation
+## Note
+- I am currently working on this project.

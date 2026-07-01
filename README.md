@@ -144,16 +144,16 @@ DocuTrust follows Django security best practices out of the box:
 ## Roadmap
 
 - [x] **Module 1** — Django Project Setup
-- [ ] Module 2 — Authentication
-- [ ] Module 3 — Document Upload
-- [ ] Module 4 — Document Parsing
-- [ ] Module 5 — ChromaDB
-- [ ] Module 6 — Embeddings
-- [ ] Module 7 — Agno Agents
-- [ ] Module 8 — RAG Pipeline
-- [ ] Module 9 — Chat UI
-- [ ] Module 10 — Dashboard
-- [ ] Module 11 — Admin
-- [ ] Module 12 — API
+- [x] Module 2 — Authentication
+- [x] Module 3 — Document Upload
+- [x] Module 4 — Document Parsing
+- [x] Module 5 — ChromaDB
+- [x] Module 6 — Embeddings
+- [x] Module 7 — Agno Agents
+- [x] Module 8 — RAG Pipeline
+- [x] Module 9 — Chat UI
+- [x] Module 10 — Dashboard
+- [x] Module 11 — Admin
+- [x] Module 12 — API
 - [ ] Module 13 — Deployment
 - [ ] Module 14 — Documentation
